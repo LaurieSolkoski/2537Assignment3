@@ -107,6 +107,7 @@ const fetchPokemonTypes = async () => {
     updatePaginationDiv(currentPage, numPages);
   };
   
+//   updatePaginationDiv(currentPage, numPages);
 
 
 
@@ -177,6 +178,10 @@ const setup = async () => {
 
     await filterPokemons(selectedTypes);
   });
+
+  const numPages = Math.ceil(pokemons.length / PAGE_SIZE);
+  paginate(currentPage, PAGE_SIZE, pokemons);
+  updatePaginationDiv(currentPage, numPages);
 };
 
 $(document).ready(setup);
